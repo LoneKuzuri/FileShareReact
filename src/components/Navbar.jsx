@@ -11,7 +11,6 @@ function Navbar({ storageUsage, viewMode, setViewMode }) {
       <div className="header-left">
         <button className="btn btn-primary">
           <span className="btn-icon plus-icon"></span>
-          Add File
         </button>
       </div>
       

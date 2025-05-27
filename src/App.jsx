@@ -25,10 +25,10 @@ function App() {
     setFiles([...files, newFile]);
   };
 
-   const [viewMode, setViewMode] = useState('grid');
-   const storageUsage = {
-    used: 1.2,    // GB used
-    total: 5.0    // GB total
+  const [viewMode, setViewMode] = useState('grid');
+  const storageUsage = {
+    used: 1.2,
+    total: 5.0
   };
 
   return (
@@ -39,14 +39,10 @@ function App() {
         setViewMode={setViewMode}  
       />
       <div className="app-content">
-
-
         <Sidebar 
-        isCollapsed={isSidebarCollapsed}
-        onToggle={() => setIsSidebarCollapsed(!isSidebarCollapsed)}
+          isCollapsed={isSidebarCollapsed}
+          onToggle={() => setIsSidebarCollapsed(!isSidebarCollapsed)}
         />
-
-        
         <main className="main-content">
           <FileUpload onUpload={handleUpload} />
           <FileList files={files} />

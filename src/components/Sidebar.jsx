@@ -1,5 +1,18 @@
 // components/Sidebar.jsx
 import React from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import {
+  faBars,
+  faTimes,
+  faFolder,
+  faShareAlt,
+  faFileAlt,
+  faStar,
+  faLock,
+  faTrash,
+  faFileDownload,
+  faSignOutAlt,
+} from '@fortawesome/free-solid-svg-icons';
 import logoImg from '../assets/logo.jpg';
 import './Sidebar.css';
 
@@ -14,59 +27,59 @@ function Sidebar({ isCollapsed, onToggle, onLogout, onRequestFile }) {
           {!isCollapsed && <span className="logo-text">File Share</span>}
         </div>
         <button className="toggle-btn" onClick={onToggle}>
-          {isCollapsed ? '→' : '←'}
+          <FontAwesomeIcon icon={isCollapsed ? faBars : faTimes} />
         </button>
       </div>
-      
+
       <nav className="sidebar-nav">
         <ul>
           <li className="nav-item active">
             <a href="#" className="nav-link">
-              <span className="nav-icon folder-icon"></span>
+              <FontAwesomeIcon icon={faFolder} className="nav-icon" />
               {!isCollapsed && <span className="nav-text">My Files</span>}
             </a>
           </li>
           <li className="nav-item">
             <a href="#" className="nav-link">
-              <span className="nav-icon share-icon"></span>
+              <FontAwesomeIcon icon={faShareAlt} className="nav-icon" />
               {!isCollapsed && <span className="nav-text">Shared</span>}
             </a>
           </li>
           <li className="nav-item">
             <a href="#" className="nav-link">
-              <span className="nav-icon files-icon"></span>
+              <FontAwesomeIcon icon={faFileAlt} className="nav-icon" />
               {!isCollapsed && <span className="nav-text">All Files</span>}
             </a>
           </li>
           <li className="nav-item">
             <a href="#" className="nav-link">
-              <span className="nav-icon star-icon"></span>
+              <FontAwesomeIcon icon={faStar} className="nav-icon" />
               {!isCollapsed && <span className="nav-text">Favorites</span>}
             </a>
           </li>
           <li className="nav-item">
             <a href="#" className="nav-link">
-              <span className="nav-icon private-icon"></span>
-              {!isCollapsed && <span className="nav-text">Private files</span>}
+              <FontAwesomeIcon icon={faLock} className="nav-icon" />
+              {!isCollapsed && <span className="nav-text">Private Files</span>}
             </a>
           </li>
           <li className="nav-item">
             <a href="#" className="nav-link">
-              <span className="nav-icon trash-icon"></span>
-              {!isCollapsed && <span className="nav-text">Deleted Files</span>}
+              <FontAwesomeIcon icon={faTrash} className="nav-icon" />
+              {!isCollapsed && <span className="nav-text">Deleted</span>}
             </a>
           </li>
         </ul>
       </nav>
-      
+
       <div className="sidebar-footer">
         <button className="sidebar-btn" onClick={onRequestFile}>
-          <span className="nav-icon request-icon"></span>
+          <FontAwesomeIcon icon={faFileDownload} className="nav-icon" />
           {!isCollapsed && <span>Request File</span>}
         </button>
         <button className="sidebar-btn" onClick={onLogout}>
-          <span className="nav-icon logout-icon"></span>
-          {!isCollapsed && <span>Log out</span>}
+          <FontAwesomeIcon icon={faSignOutAlt} className="nav-icon" />
+          {!isCollapsed && <span>Log Out</span>}
         </button>
       </div>
     </aside>
