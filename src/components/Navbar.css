@@ -4,8 +4,9 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0 20px;
-  background-color: white;
+  padding: 15.5px;
+  /* background-color: white; */
+   background: linear-gradient(145deg, rgba(18, 18, 30, 0.85), rgba(30, 30, 60, 0.85));
 }
 
 .header-left, .header-right {
@@ -29,6 +30,7 @@
   align-items: center;
   font-size: 12px;
   margin-bottom: 4px;
+  color:white;
 }
 
 .storage-text span:first-child {
@@ -60,10 +62,12 @@
   background-color: #f1f5f9;
   border-radius: 4px;
   margin-right: 10px;
+  gap: 4px;
 }
 
 .view-btn {
   width: 32px;
+  padding: 2px 2px;
   height: 32px;
   display: flex;
   align-items: center;
@@ -74,7 +78,7 @@
 
 .view-btn.active {
   background-color: white;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  /* box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1); */
 }
 
 .header-btn {

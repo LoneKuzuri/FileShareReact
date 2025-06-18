@@ -20,12 +20,14 @@ function Navbar({ storageUsage, viewMode, setViewMode }) {
             <span>{storageUsage.used} / {storageUsage.total} Gb</span>
             <span>Storage Usage</span>
           </div>
+
           <div className="storage-bar">
             <div 
               className="storage-progress" 
-              style={{ width: `${(storageUsage.used / storageUsage.total) * 100}%` }}
-            ></div>
+              style={{ width: `${(storageUsage.used / storageUsage.total) * 100}%` }}>
+              </div>
           </div>
+
         </div>
         
         <div className="header-actions">
@@ -35,28 +37,30 @@ function Navbar({ storageUsage, viewMode, setViewMode }) {
               onClick={() => setViewMode('grid')}
               title="Grid View"
             >
-              <FiGrid size={18} />
+              <FiGrid size={20} />
             </button>
+          
             <button 
               className={`view-btn ${viewMode === 'list' ? 'active' : ''}`}
               onClick={() => setViewMode('list')}
               title="List View"
             >
-              <FiList size={18} />
+              <FiList size={20} />
             </button>
           </div>
           
           <button className="header-btn settings-btn" title="Settings">
-             <FiSettings size={18} />
+             <FiSettings size={20} />
           </button>
           
           <button className="header-btn notification-btn" title="Notifications">
-            <FaBell size={24} color="yellow"/>
+            <FaBell size={24} color="golden"/>
           </button>
           
           <div className="user-avatar">
             <img src={userImg} alt="User profile" />
           </div>
+
         </div>
       </div>
     </header>

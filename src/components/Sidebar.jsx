@@ -1,4 +1,3 @@
-// components/Sidebar.jsx
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
@@ -26,7 +25,7 @@ function Sidebar({ isCollapsed, onToggle, onLogout, onRequestFile }) {
           </div>
           {!isCollapsed && <span className="logo-text">File Share</span>}
         </div>
-        <button className="toggle-btn" onClick={onToggle}>
+        <button className="toggle-btn" onClick={onToggle} aria-label="Toggle sidebar">
           <FontAwesomeIcon icon={isCollapsed ? faBars : faTimes} />
         </button>
       </div>
