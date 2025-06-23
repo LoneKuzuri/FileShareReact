@@ -1,3 +1,5 @@
+/* ---------- Light Theme (Default) ---------- */
+
 .file-upload-modal {
   position: relative;
   background: #ffffff;
@@ -9,6 +11,7 @@
   box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   border: 1px solid #e5e7eb;
+  margin-bottom: 20px;
 }
 
 .file-upload-modal h2 {
@@ -188,4 +191,91 @@
 
 .uploading {
   animation: pulse 1.5s infinite;
+}
+
+
+/* ---------- 🌙 Dark Mode Overrides ---------- */
+
+.file-upload-modal.dark {
+  background: #1e1e2e;
+  color: #e2e8f0;
+  border: 1px solid #334155;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.5);
+}
+
+.file-upload-modal.dark h2 {
+  color: #f1f5f9;
+}
+
+.file-upload-modal.dark .drop-zone {
+  background-color: #2c2c3b;
+  border: 2px dashed #4b5563;
+}
+
+.file-upload-modal.dark .drop-zone:hover {
+  background-color: #374151;
+  border-color: #60a5fa;
+}
+
+.file-upload-modal.dark .drop-zone p {
+  color: #cbd5e1;
+}
+
+.file-upload-modal.dark .upload-icon {
+  color: #60a5fa;
+}
+
+.file-upload-modal.dark .file-name {
+  color: #f8fafc;
+}
+
+.file-upload-modal.dark .file-details {
+  background-color: #2a2a3a;
+  color: #d1d5db;
+}
+
+.file-upload-modal.dark .upload-button {
+  background: linear-gradient(to right, #3b82f6, #1d4ed8);
+  color: white;
+}
+
+.file-upload-modal.dark .upload-button:hover {
+  background: linear-gradient(to right, #2563eb, #1e40af);
+}
+
+.file-upload-modal.dark .upload-button:disabled {
+  background: #4b5563;
+  color: #9ca3af;
+}
+
+.file-upload-modal.dark .file-info {
+  background-color: #052e16;
+  border: 1px solid #14532d;
+}
+
+.file-upload-modal.dark .file-info p {
+  color: #bbf7d0;
+}
+
+.file-upload-modal.dark .file-url {
+  background-color: #1f2937;
+  border: 1px solid #334155;
+  color: #f8fafc;
+}
+
+.file-upload-modal.dark .file-url a {
+  color: #60a5fa;
+}
+
+.file-upload-modal.dark .file-url a:hover {
+  color: #93c5fd;
+}
+
+.file-upload-modal.dark .copy-button {
+  background-color: #3730a3;
+  color: #e0e7ff;
+}
+
+.file-upload-modal.dark .copy-button:hover {
+  background-color: #4f46e5;
 }

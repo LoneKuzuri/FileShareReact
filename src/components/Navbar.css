@@ -114,6 +114,25 @@
   border-radius: 50%;
 }
 
+.dark-mode-btn {
+  background: none;
+  border: none;
+  color: inherit;
+  margin: 0 6px;
+  padding: 6px;
+  cursor: pointer;
+  border-radius: 6px;
+  transition: background 0.2s ease;
+}
+
+.dark-mode-btn:hover {
+  background: rgba(226, 92, 92, 0.1);
+}
+
+.app.dark .dark-mode-btn:hover {
+  background: rgba(2, 27, 24, 0.1);
+}
+
 
 .user-avatar {
   width: 40px;

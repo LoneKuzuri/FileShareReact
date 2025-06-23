@@ -1,83 +1,60 @@
-.file-list {
+/* Base styles */
+.file-browser {
+  --bg-color: #f9fafb;
+  --border-color: #e2e8f0;
+  --text-color: #111827;
+  --text-secondary: #64748b;
+  --primary-color: #2563eb;
+  --hover-bg: #f1f5f9;
+  --shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+  --radius: 12px;
+
   width: 100%;
-  padding: 1rem;
+  height: 70%;
+  padding: 1.5rem;
+  background-color: var(--bg-color);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  margin: auto;
 }
 
-.file-item {
+/* Header section */
+.file-browser-header {
   display: flex;
   justify-content: space-between;
-  padding: 0.75rem;
-  border-bottom: 1px solid #e1e1e1;
-}
-
-.file-name {
-  flex: 2;
-  font-weight: 500;
-}
-
-.file-size, .file-date {
-  flex: 1;
-  color: #666;
-  text-align: right;
-}
-.file-list {
-  width: 100%;
-  padding: 1rem;
-}
-
-.file-item {
-  display: flex;
-  justify-content: space-between;
-  padding: 0.75rem;
-  border-bottom: 1px solid #e1e1e1;
-}
-
-.file-name {
-  flex: 2;
-  font-weight: 500;
-}
-
-.file-size, .file-date {
-  flex: 1;
-  color: #666;
-  text-align: right;
-}
-
-.empty-state {
-  display: flex;
-  flex-direction: column;
   align-items: center;
-  justify-content: center;
-  gap: 16px;
-  height: 300px;
-  color: #666;
-  text-align: center;
+  margin-bottom: 1.5rem;
 }
 
-.empty-state img {
-  width: 120px;
-  opacity: 0.6;
-}
-
-.empty-state p {
-  font-size: 1.1rem;
+.file-browser-header h1 {
+  font-size: 1.5rem;
+  color: var(--text-color);
   margin: 0;
 }
 
-/* Dropdown Styles */
+/* Dropdown styles */
 .sort-dropdown {
   position: relative;
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
+  padding: 0.625rem 0.875rem;
+  border-radius: 6px;
+  background-color: var(--border-color);
   cursor: pointer;
-  padding: 8px 12px;
-  border-radius: 4px;
-  background: #f1f5f9;
   user-select: none;
+  font-size: 0.95rem;
+  color: var(--text-color);
+  gap: 0.5rem;
+  transition: background-color 0.2s ease;
+}
+
+.sort-dropdown:hover {
+  background-color: #d1dbe8;
 }
 
 .dropdown-arrow {
-  margin-left: 8px;
-  transition: transform 0.2s;
+  transition: transform 0.2s ease;
+  font-size: 0.75rem;
 }
 
 .dropdown-arrow.open {
@@ -89,36 +66,101 @@
   top: 100%;
   right: 0;
   background: white;
-  border: 1px solid #e2e8f0;
-  border-radius: 4px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  z-index: 10;
-  min-width: 120px;
+  border: 1px solid var(--border-color);
+  border-radius: 6px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  z-index: 100;
+  min-width: 140px;
+  overflow: hidden;
+  margin-top: 0.5rem;
 }
 
 .dropdown-item {
-  padding: 8px 12px;
-  transition: background 0.2s;
+  padding: 0.625rem 0.875rem;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  color: var(--text-color);
 }
 
 .dropdown-item:hover {
-  background: #f8fafc;
+  background-color: var(--hover-bg);
 }
 
-/* Mobile Responsiveness */
+.dropdown-item[aria-selected="true"] {
+  background-color: var(--border-color);
+  font-weight: 500;
+}
+
+/* File container styles */
+.file-container {
+  transition: all 0.3s ease;
+}
+
+.file-container.list-view {
+  display: flex;
+  flex-direction: column;
+  gap: 0.625rem;
+}
+
+.file-container.grid-view {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 1rem;
+}
+
+/* Empty state styles */
+.empty-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  height: 280px;
+  color: var(--text-secondary);
+  text-align: center;
+  padding: 2rem;
+}
+
+.empty-state img {
+  width: 120px;
+  opacity: 0.6;
+}
+
+.empty-state p {
+  font-size: 1.05rem;
+  margin: 0;
+  color: var(--text-secondary);
+}
+
+/* Responsive styles */
 @media (max-width: 768px) {
   .file-browser-header {
     flex-direction: column;
     align-items: flex-start;
-    gap: 12px;
+    gap: 0.625rem;
   }
 
   .sort-dropdown {
     width: 100%;
-    text-align: center;
+    justify-content: space-between;
   }
 
   .dropdown-menu {
     width: 100%;
   }
+
+  .file-container.grid-view {
+    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+  }
+}
+
+/* -------------------- 🌙 Dark Mode -------------------- */
+.file-browser.dark {
+  --bg-color: #1f2937;
+  --border-color: #374151;
+  --text-color: #f3f4f6;
+  --text-secondary: #9ca3af;
+  --hover-bg: #334155;
+  --shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
 }

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import './FileUpload.css';
 
-function FileUploadModal({ onClose, onUploadComplete }) {
+function FileUploadModal({ onClose, onUploadComplete, isDarkMode }) {
   const [selectedFile, setSelectedFile] = useState(null);
   const [isUploading, setIsUploading] = useState(false);
   const [fileUrl, setFileUrl] = useState('');
@@ -35,7 +35,7 @@ function FileUploadModal({ onClose, onUploadComplete }) {
   };
 
   return (
-    <div className="file-upload-modal">
+    <div className={`file-upload-modal ${isDarkMode ? 'dark' : ""}`}>
       <h2>Upload File</h2>
       
       <div className="upload-area">

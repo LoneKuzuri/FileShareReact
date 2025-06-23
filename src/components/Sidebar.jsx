@@ -15,9 +15,9 @@ import {
 import logoImg from '../assets/logo.jpg';
 import './Sidebar.css';
 
-function Sidebar({ isCollapsed, onToggle, onLogout, onRequestFile }) {
+function Sidebar({ isCollapsed, onToggle, onLogout, onRequestFile, isDarkMode }) {
   return (
-    <aside className={`sidebar ${isCollapsed ? 'collapsed' : ''}`}>
+    <aside className={`sidebar ${isCollapsed ? 'collapsed' : ''}  ${isDarkMode ? 'dark' : ''}`}>
       <div className="sidebar-header">
         <div className="logo">
           <div className="logo-icon">

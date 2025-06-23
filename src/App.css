@@ -47,7 +47,7 @@ body {
 
 .main-content {
   flex: 1;
-  padding: 2rem;
+  padding: 1rem 1.5rem;
   overflow-y: auto;
   margin-left: 250px;
   transition: margin-left 0.3s ease;
@@ -56,8 +56,8 @@ body {
   box-shadow: -4px 0 12px rgba(0, 0, 0, 0.1);
 }
 
-.sidebar.collapsed + .main-content {
-  margin-left: 70px;
+.main-content.collapsed {
+  margin-left: 80px;
 }
 
 @media (max-width: 768px) {
@@ -71,7 +71,7 @@ body {
     border-radius: 0;
   }
 
-  .sidebar.collapsed + .main-content {
+  .main-content.collapsed {
     margin-left: 0;
   }
 }

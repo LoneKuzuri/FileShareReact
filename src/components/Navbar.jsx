@@ -3,14 +3,15 @@ import React from 'react';
 import { FiGrid, FiList, FiSettings } from 'react-icons/fi';
 import { FaBell } from 'react-icons/fa';
 import userImg from '../assets/User.jpg';
+import { BsMoonStars, BsSun } from 'react-icons/bs';
 import './Navbar.css';
 
-function Navbar({ storageUsage, viewMode, setViewMode }) {
+function Navbar({ storageUsage, viewMode, setViewMode, isDarkMode, toggleDarkMode }) {
   return (
     <header className="app-header">
       <div className="header-left">
         <button className="btn btn-primary">
-          <span className="btn-icon plus-icon"></span>
+          {/* <span className="btn-icon plus-icon"></span> */}
         </button>
       </div>
       
@@ -48,6 +49,15 @@ function Navbar({ storageUsage, viewMode, setViewMode }) {
               <FiList size={20} />
             </button>
           </div>
+
+          {/* dark mode ko laagi */}
+           <button 
+            className="header-btn dark-mode-btn" 
+            onClick={toggleDarkMode}
+            title="Toggle Dark Mode"
+          >
+            {isDarkMode ? <BsSun size={20} /> : <BsMoonStars size={18} />}
+          </button>
           
           <button className="header-btn settings-btn" title="Settings">
              <FiSettings size={20} />

@@ -8,7 +8,8 @@ import './App.css';
 
 function App() {
   const [isSidebarCollapsed, setIsSidebarCollapsed] = useState(false);
-
+  const [isDarkMode, setIsDarkMode] = useState(false); 
+  
   const [files, setFiles] = useState([
     { id: 1, name: 'Document.pdf', size: '2.4 MB', date: '2023-05-15' },
     { id: 2, name: 'Image.jpg', size: '1.8 MB', date: '2023-05-14' },
@@ -32,22 +33,38 @@ function App() {
   };
 
   return (
-    <div className="app">
+   <div className={`app ${isDarkMode ? 'dark' : ''}`}> {/* ✅ Toggle dark class */}
+     
       <Navbar 
         storageUsage={storageUsage} 
         viewMode={viewMode} 
         setViewMode={setViewMode}  
+        isDarkMode={isDarkMode}
+        toggleDarkMode={() => setIsDarkMode(!isDarkMode)} // ✅ Pass to Navbar
       />
+
+
       <div className="app-content">
         <Sidebar 
           isCollapsed={isSidebarCollapsed}
           onToggle={() => setIsSidebarCollapsed(!isSidebarCollapsed)}
+           isDarkMode={isDarkMode}
         />
-        <main className="main-content">
-          <FileUpload onUpload={handleUpload} />
-          <FileList files={files} />
+
+        <main className={`main-content ${isSidebarCollapsed ? 'collapsed' : ''}`}>
+          <FileUpload 
+             onUpload={handleUpload}
+             isDarkMode={isDarkMode}
+          />
+
+          <FileList 
+            files={files} 
+            isDarkMode={isDarkMode}
+          />
         </main>
+
       </div>
+
     </div>
   );
 }

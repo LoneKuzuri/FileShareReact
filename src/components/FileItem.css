@@ -1,31 +1,175 @@
-/* src/components/FileItem.css */
+/* FileItem.css */
 .file-item {
   display: flex;
   justify-content: space-between;
-  padding: 10px;
-  border: 1px solid #ccc;
-  margin-bottom: 5px;
+  align-items: center;
+  padding: 12px 16px;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  margin-bottom: 8px;
+  background-color: #fff;
+  transition: all 0.2s ease;
+  font-size: 14px; /* ✅ Fixed from 4px */
   cursor: pointer;
+  position: relative;
+}
+
+.file-item:hover {
+  background-color: #f0f8ff;
+  transform: translateY(-1px);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.file-item:focus {
+  outline: 2px solid #3b82f6;
+  outline-offset: 2px;
 }
 
 .file-item.selected {
-  background-color: #e0f7fa;
+  background-color: #eff6ff;
+  border: 2px solid #3b82f6;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
+.file-info {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex: 1;
+  min-width: 0; /* ✅ Prevents overflow issues */
+}
+
+.file-icon {
+  font-size: 24px;
+  width: 24px;
+  height: 24px;
+  flex-shrink: 0;
+  transition: transform 0.2s ease;
+}
+
+.file-item:hover .file-icon {
+  transform: scale(1.1);
+}
+
+/* ✅ Icon colors with better contrast */
+.file-icon.pdf {
+  color: #dc2626 !important;
+}
+
+.file-icon.image {
+  color: #2563eb !important;
+}
+
+.file-icon.ppt {
+  color: #ea580c !important;
+}
+
+.file-info p {
+  margin: 0;
+  font-size: 15px;
+  font-weight: 500;
+  color: #111827;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis; /* ✅ Handle long filenames */
+  max-width: 200px;
 }
 
 .share-btn {
-  background-color: #2196f3;
+  background-color: #3b82f6;
   color: white;
   border: none;
-  padding: 4px 8px;
+  padding: 8px 16px;
+  font-size: 13px;
+  font-weight: 500;
+  border-radius: 6px;
   cursor: pointer;
+  transition: all 0.2s ease;
+  flex-shrink: 0;
 }
 
-/* FileItem.css */
-.file-icon {
-  font-size: 24px;
-  margin-right: 12px;
+.share-btn:hover {
+  background-color: #2563eb;
+  transform: translateY(-1px);
+  box-shadow: 0 2px 4px rgba(59, 130, 246, 0.3);
 }
 
-.file-icon.pdf { color: #e74c3c; } /* Red for PDF */
-.file-icon.image { color: #3498db; } /* Blue for images */
-.file-icon.ppt { color: #e67e22; } /* Orange for PowerPoint */
+.share-btn:focus {
+  outline: 2px solid #1d4ed8;
+  outline-offset: 2px;
+}
+
+.share-btn:active {
+  transform: translateY(0);
+}
+
+/* 🌙 DARK MODE SUPPORT */
+.file-item.dark {
+  background-color: #1f2937;
+  border-color: #374151;
+  color: #e5e7eb;
+}
+
+.file-item.dark:hover {
+  background-color: #374151;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.file-item.dark:focus {
+  outline-color: #60a5fa;
+}
+
+.file-item.dark.selected {
+  background-color: #1e3a8a;
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 3px rgba(96, 165, 250, 0.2);
+}
+
+.file-item.dark .file-info p {
+  color: #f1f5f9;
+}
+
+/* ✅ KEEP ICON COLORS EVEN IN DARK MODE */
+.file-item.dark .file-icon.pdf {
+  color: #ef4444 !important;
+}
+
+.file-item.dark .file-icon.image {
+  color: #3b82f6 !important;
+}
+
+.file-item.dark .file-icon.ppt {
+  color: #f59e0b !important;
+}
+
+.file-item.dark .share-btn {
+  background-color: #4f46e5;
+  color: #e0e7ff;
+  border: 1px solid #6366f1;
+}
+
+.file-item.dark .share-btn:hover {
+  background-color: #4338ca;
+  box-shadow: 0 2px 4px rgba(79, 70, 229, 0.4);
+}
+
+.file-item.dark .share-btn:focus {
+  outline-color: #818cf8;
+}
+
+/* ✅ Responsive design */
+@media (max-width: 640px) {
+  .file-item {
+    padding: 10px 12px;
+  }
+  
+  .file-info p {
+    font-size: 14px;
+    max-width: 150px;
+  }
+  
+  .share-btn {
+    padding: 6px 12px;
+    font-size: 12px;
+  }
+}
